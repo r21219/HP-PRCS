@@ -18,5 +18,8 @@ namespace DataTables.Model
         public string Description { get; set; }
         [JsonPropertyName("state")]
         public State State { get; set; }
+        [JsonPropertyName("date")]
+        public DateTime Date { get; set; }
+
     }
 }
