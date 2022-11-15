@@ -2,6 +2,8 @@
 {
     public enum Status
     {
-        ONHOLD, IN_PROGRESS,FINISHED
+        ONHOLD = 0, 
+        IN_PROGRESS = 1,
+        FINISHED = 2,
     }
 }
