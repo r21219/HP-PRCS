@@ -12,6 +12,6 @@ namespace ProjectWeb.Model
         [Required]
         public Status Status { get; set; }
 
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }
