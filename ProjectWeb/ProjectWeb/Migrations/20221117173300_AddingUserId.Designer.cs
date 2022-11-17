@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectWeb.Model.Data;
 
@@ -11,9 +12,11 @@ using ProjectWeb.Model.Data;
 namespace ProjectWeb.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    partial class TodoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221117173300_AddingUserId")]
+    partial class AddingUserId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,8 +47,6 @@ namespace ProjectWeb.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Todos");
                 });
@@ -80,20 +81,6 @@ namespace ProjectWeb.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("ProjectWeb.Model.Todo", b =>
-                {
-                    b.HasOne("ProjectWeb.Model.User", null)
-                        .WithMany("Todo")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProjectWeb.Model.User", b =>
-                {
-                    b.Navigation("Todo");
                 });
 #pragma warning restore 612, 618
         }

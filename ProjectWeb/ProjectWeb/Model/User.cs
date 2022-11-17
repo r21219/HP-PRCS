@@ -18,5 +18,6 @@ namespace ProjectWeb.Model
         public string Password { get; set; }
         
         public Gender Gender  { get; set; }
+        public List<Todo>? Todo { get; set; }
     }
 }
