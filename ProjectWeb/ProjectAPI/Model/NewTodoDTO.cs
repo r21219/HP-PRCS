@@ -4,12 +4,8 @@ using ProjectWeb.Model.Enum;
 
 namespace ProjectAPI.Model
 {
-    public class TodoDTO
+    public class NewTodoDTO
     {
-        [Key]
-        [JsonProperty("id")]
-        public int Id { get; set; }
-        [JsonProperty("userId")]
         public int UserId { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
