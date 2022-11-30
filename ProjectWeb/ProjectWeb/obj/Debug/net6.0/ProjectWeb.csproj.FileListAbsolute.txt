@@ -286,3 +286,9 @@ C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6
 C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\obj\Debug\net6.0\ProjectWeb.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\ProjectAPI.deps.json
+C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\ProjectAPI.runtimeconfig.json
+C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\ProjectAPI.staticwebassets.runtime.json
+C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\ProjectAPI.exe
+C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\ProjectAPI.dll
+C:\Users\Lenovo\Desktop\Git Station\HP-PRCS\ProjectWeb\ProjectWeb\bin\Debug\net6.0\ProjectAPI.pdb

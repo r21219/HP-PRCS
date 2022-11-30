@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "V0QiwfycLVXclKG7JF1cxKmZg0iYWjxDdxVvDIVt31Q=",
+  "Hash": "e3KkP3XI0xl0SQVKJttZJvHwZha+V+FDGRozgAwsHoI=",
   "Source": "ProjectWeb",
   "BasePath": "_content/ProjectWeb",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Lenovo\\Desktop\\Git Station\\HP-PRCS\\ProjectWeb\\ProjectAPI\\ProjectAPI.csproj",
+      "Version": 2,
+      "Source": "ProjectAPI",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
   "DiscoveryPatterns": [
     {
       "Name": "ProjectWeb\\wwwroot",

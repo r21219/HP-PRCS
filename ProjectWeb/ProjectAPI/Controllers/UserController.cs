@@ -24,19 +24,20 @@ namespace ProjectAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetUser(int id)
+        public async Task<IActionResult> GetUser(string name, string password)
         {
-            if (id == 0)
+            if (name == null || password == null)
             {
                 return BadRequest("Wrong id input");
             }
-            else if(todoDbContext.Users.Where(o => o.Id == id) == null)
+            else if(todoDbContext.Users.Where(o => o.Username == name && o.Password == password) == null)
             {
                 return NotFound("User not found");
             }
             else
             {
-                return Ok(await todoDbContext.Users.Where(o => o.Id == id)
+                return Ok(await todoDbContext.Users
+                    .Where(o => o.Username == name)
                     .Select(o => new UserDTO
                     {
                         Id = o.Id,

@@ -31,16 +31,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/CreateTodo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xDcmVhdGVUb2RvLmNzaHRtbA==
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/DetailTodo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xEZXRhaWxUb2RvLmNzaHRtbA==
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/EditTodo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xFZGl0VG9kby5jc2h0bWw=
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/Index.cshtml]
@@ -51,8 +51,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/User/RegistrationForm.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxSZWdpc3RyYXRpb25Gb3JtLmNzaHRtbA==
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/User/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/User/UserPage.cshtml]
