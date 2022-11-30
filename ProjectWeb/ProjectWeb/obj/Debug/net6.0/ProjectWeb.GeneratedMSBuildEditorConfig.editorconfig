@@ -23,12 +23,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Shared/Widgets/_LoginWidget.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFdpZGdldHNcX0xvZ2luV2lkZ2V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/CreateTodo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xDcmVhdGVUb2RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/DetailTodo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xEZXRhaWxUb2RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/EditTodo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xFZGl0VG9kby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Todo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVG9kb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/User/RegistrationForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxSZWdpc3RyYXRpb25Gb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/User/UserPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxVc2VyUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/_ViewImports.cshtml]
@@ -37,10 +65,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Views/Todo/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWeb/Pages/Shared/_Layout.cshtml]

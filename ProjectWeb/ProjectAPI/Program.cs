@@ -14,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.UseInlineDefinitionsForEnums();
+    
 });
 var app = builder.Build();
 
