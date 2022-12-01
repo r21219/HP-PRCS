@@ -1,0 +1,17 @@
+﻿@using Newtonsoft.Json
+@using ProjectAPI.Model
+@inject IHttpContextAccessor httpContextAcessor;
+
+@{
+    if (!string.IsNullOrEmpty(httpContextAcessor.HttpContext.Session.GetString(SessionKeyManager.SessionKey)))
+    {
+        var customerDTO = JsonConvert.DeserializeObject<UserDTO>(httpContextAcessor.HttpContext.Session.GetString(SessionKeyManager.SessionKey));
+        <li class="nav-item justify-content-end">
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Update">@customerDTO.Username</a>
+        </li>
+        <li class="nav-item justify-content-end">
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="LogOut"><i class="bi bi-box-arrow-right fs-5"></i></a>
+        </li>
+    }
+
+}

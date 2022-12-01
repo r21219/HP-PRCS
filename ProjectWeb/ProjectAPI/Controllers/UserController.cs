@@ -29,25 +29,26 @@ namespace ProjectAPI.Controllers
             {
                 return BadRequest("Wrong id input");
             }
-            else if(todoDbContext.Users.Where(o => o.Username == name && o.Password == password) == null)
+            var user = await todoDbContext.Users
+                .Where(o => o.Username == name && o.Password == password)
+                .Select(o => new UserDTO
+                {
+                    Id = o.Id,
+                    Forename = o.Forename,
+                    Gender = o.Gender,
+                    IsAdmin = o.IsAdmin,
+                    Surname = o.Surname,
+                    Password = o.Password,
+                    Username = o.Username,
+                })
+                .FirstOrDefaultAsync();
+            if (user == null)
             {
                 return NotFound("User not found");
             }
             else
             {
-                return Ok(await todoDbContext.Users
-                    .Where(o => o.Username == name)
-                    .Select(o => new UserDTO
-                    {
-                        Id = o.Id,
-                        Forename = o.Forename,
-                        Gender = o.Gender,
-                        IsAdmin = o.IsAdmin,
-                        Surname = o.Surname,
-                        Password = o.Password,
-                        Username = o.Username,
-                    })
-                    .FirstOrDefaultAsync());
+                return Ok(user);
             }
         }
         /// <summary>

@@ -29,16 +29,22 @@ namespace ProjectWebsiteMVC.Controllers
                 {
                     UserDTO currentUser = JsonConvert.DeserializeObject<UserDTO>(response.Content.ReadAsStringAsync().Result);
                     HttpContext.Session.SetString(SessionKeyManager.SessionKey, JsonConvert.SerializeObject(currentUser));
-
-                    return View("detail");
+                    TempData["Sucess"] = "User sucessfully logged in";
+                    return RedirectToAction("Update");
                 }
                 else
                 {
-                    return View("index");
+                    TempData["Error"] = "Wrong username or password";
+                    return RedirectToAction("index");
                 }
             }
             return RedirectToAction("Index");
         }
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Create(NewTodoDTO newUser)
         {
@@ -47,10 +53,11 @@ namespace ProjectWebsiteMVC.Controllers
                 var result = _httpClient.PostAsJsonAsync(URLUser,newUser).Result;
                 if (result.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-
-                    return RedirectToAction("Detail");
+                    TempData["Sucess"] = "User sucessfully created";
+                    return RedirectToAction("Update");
                 }
             }
+            TempData["Error"] = "User was not created";
             return View();
         }
 
@@ -61,13 +68,15 @@ namespace ProjectWebsiteMVC.Controllers
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                LogOff();
+                TempData["Sucess"] = "User sucessfully deleted";
+                Logout();
             }
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
-                return View("Error has occured");
+                TempData["Error"] = "User could not be deleted";
+                return View("Update");
             }
-            return View("Detail");
+            return View("Update");
         }
         public IActionResult Update()
         {
@@ -80,6 +89,7 @@ namespace ProjectWebsiteMVC.Controllers
             }
             else
             {
+                TempData["Error"] = "User could not be found";
                 return View("Index");
             }
         }
@@ -93,19 +103,22 @@ namespace ProjectWebsiteMVC.Controllers
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return RedirectToAction("Detail");
+                    TempData["Sucess"] = "User was sucessfully updated";
+                    return RedirectToAction("Update");
                 }
                 else
                 {
+                    TempData["Error"] = "User could not be updated";
                     return View("Error has occured");
                 }
             }
-            return View("Detail");
+            return View("Update");
         }
 
-        public IActionResult LogOff()
+        public IActionResult Logout()
         {
             HttpContext.Session.Remove(SessionKeyManager.SessionKey);
+            TempData["Sucess"] = "User has logged off";
             return RedirectToAction("Index");
         }
     }
