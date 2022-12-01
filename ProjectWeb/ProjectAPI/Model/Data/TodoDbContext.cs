@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ProjectWeb.Model.Data
+namespace ProjectAPI.Model.Data
 {
     public class TodoDbContext:DbContext
     {

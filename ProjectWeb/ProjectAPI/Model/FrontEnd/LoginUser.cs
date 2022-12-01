@@ -1,4 +1,4 @@
-﻿namespace ProjectWeb.Model
+﻿namespace ProjectAPI.Model
 {
     public class LoginUser
     {

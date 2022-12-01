@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectAPI.Model;
-using ProjectWeb.Model;
-using ProjectWeb.Model.Data;
+using ProjectAPI.Model.Data;
 
 namespace ProjectAPI.Controllers
 {
@@ -109,6 +108,30 @@ namespace ProjectAPI.Controllers
             else
             {
                 return BadRequest("Wrong todo format");
+            }
+        }
+
+        /// <summary>
+        /// Used for deleting the user
+        /// </summary>
+        /// <param name="id">The id of the user which will be deleted from the database</param>
+        /// <returns></returns>
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public async Task<IActionResult> DeleteTodo(int id)
+        {
+            var user = await todoDbContext.Users.FindAsync(id);
+            if (user != null)
+            {
+                todoDbContext.Users.Remove(user);
+                await todoDbContext.SaveChangesAsync();
+                return Ok("User sucessfully deleted");
+            }
+            else
+            {
+                return BadRequest("No user found");
             }
         }
     }

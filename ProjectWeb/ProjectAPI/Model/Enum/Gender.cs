@@ -1,4 +1,4 @@
-﻿namespace ProjectWeb.Model.Enum
+﻿namespace ProjectAPI.Model.Enum
 {
     public enum Gender
     {

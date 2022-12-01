@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace ProjectWeb.Migrations
+namespace ProjectAPI.Migrations
 {
     /// <inheritdoc />
     public partial class addingTodosToUser : Migration

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectAPI.Model;
-using ProjectWeb.Model;
-using ProjectWeb.Model.Data;
+using ProjectAPI.Model.Data;
+using ProjectAPI.Model.DTO;
 
 namespace ProjectAPI.Controllers
 {
@@ -58,6 +58,36 @@ namespace ProjectAPI.Controllers
                         UserId = userId,
                     })
                     .ToListAsync());
+            }
+        }
+        /// <summary>
+        /// Used for getting TODO
+        /// </summary>
+        /// <param name="userId">Id of the user</param>
+        /// <returns></returns>
+        [HttpGet("{userId:int}/{todoId:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<IActionResult> GetSingleTodo(int userId, int todoId)
+        {
+            if (todoDbContext.Todos.Where(o => o.Id == userId && o.Id == todoId) == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(await todoDbContext.Todos
+                    .Where(o => o.UserId == userId && o.Id == todoId)
+                    .Select(o => new TodoDTO
+                    {
+                        Date = o.Date,
+                        Description = o.Description,
+                        Id = o.Id,
+                        Status = o.Status,
+                        UserId = userId,
+                    })
+                    .FirstAsync());
             }
         }
         /// <summary>
@@ -137,7 +167,7 @@ namespace ProjectAPI.Controllers
             }
             else
             {
-                return BadRequest("Wrong todo format");
+                return BadRequest("No todo found");
             }
         }
     }

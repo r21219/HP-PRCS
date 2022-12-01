@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ProjectWeb.Model.Enum;
+using ProjectAPI.Model.Enum;
 
-namespace ProjectWeb.Model
+namespace ProjectAPI.Model
 {
     public class User
     {

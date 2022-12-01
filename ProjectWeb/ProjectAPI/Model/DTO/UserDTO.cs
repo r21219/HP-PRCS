@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
-using ProjectWeb.Model.Enum;
+using ProjectAPI.Model.Enum;
 
 namespace ProjectAPI.Model
 {

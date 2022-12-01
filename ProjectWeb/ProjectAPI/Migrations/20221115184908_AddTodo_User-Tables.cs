@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ProjectWeb.Migrations
+namespace ProjectAPI.Migrations
 {
     /// <inheritdoc />
     public partial class AddTodoUserTables : Migration

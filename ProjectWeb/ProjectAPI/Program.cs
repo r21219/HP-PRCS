@@ -1,6 +1,6 @@
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using ProjectWeb.Model.Data;
+using ProjectAPI.Model.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

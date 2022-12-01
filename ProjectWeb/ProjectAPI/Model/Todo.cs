@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ProjectWeb.Model.Enum;
+using ProjectAPI.Model.Enum;
 
-namespace ProjectWeb.Model
+namespace ProjectAPI.Model
 {
     public class Todo
     {
