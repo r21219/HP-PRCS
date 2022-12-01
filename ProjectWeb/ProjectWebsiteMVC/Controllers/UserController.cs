@@ -30,7 +30,7 @@ namespace ProjectWebsiteMVC.Controllers
                     UserDTO currentUser = JsonConvert.DeserializeObject<UserDTO>(response.Content.ReadAsStringAsync().Result);
                     HttpContext.Session.SetString(SessionKeyManager.SessionKey, JsonConvert.SerializeObject(currentUser));
                     TempData["Sucess"] = "User sucessfully logged in";
-                    return RedirectToAction("Update");
+                    return RedirectToAction("Index","Todo");
                 }
                 else
                 {

@@ -7,6 +7,9 @@
     {
         var customerDTO = JsonConvert.DeserializeObject<UserDTO>(httpContextAcessor.HttpContext.Session.GetString(SessionKeyManager.SessionKey));
         <li class="nav-item justify-content-end">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Todo" asp-action="Index">Todo</a>
+        </li>
+        <li class="nav-item justify-content-end">
             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Update">@customerDTO.Username</a>
         </li>
         <li class="nav-item justify-content-end">

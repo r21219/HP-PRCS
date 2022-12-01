@@ -1,4 +1,62 @@
-﻿
-@{
-	<h1>Todo placeholder</h1>
-}
+﻿@using ProjectAPI.Model
+@model List<TodoDTO>
+<div class="mb-4 mt-5 pt-5 pb-3 d-flex justify-content-center row">
+    @if(Model != null && Model.Any())
+    {
+    <div>
+        <h3 class="text-center">User todos</h3>
+    <table class="table table-bordered table-striped" style="width: 100%">
+        <thead>
+            <tr>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    UserId
+                </th>
+                <th>
+                    Actions:
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width="50%">
+                        @item.Status
+                    </td>
+                    <td width="30%">
+                        @item.Date
+                    </td>
+                        <td width="30%">
+                            @item.UserId
+                        </td>
+                    <td>
+                        <div class="w-80 btn-group" role="group">
+                            <a asp-controller="Todo" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning mx-2">Edit</a>
+                            <a asp-controller="Todo" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger mx-2">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        </table>
+            <div class="text-center">
+            <a asp-controller="Todo" asp-action="create" class="btn btn-success" style="width:150px">Create new todo</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+        <h1>No todos found ;(</h1>
+            <div>
+            <a asp-controller="Todo" asp-action="create" class="btn btn-success" style="width:150px">Create new todo</a>
+            </div>
+        </div>
+    }
+</div>

@@ -28,11 +28,11 @@ namespace ProjectAPI.Controllers
 
         public async Task<IActionResult> GetTodo(int userId)
         {
-            if (todoDbContext.Users.Where(o => o.Id == userId) == null)
+            if (!todoDbContext.Users.Where(o => o.Id == userId).Any())
             {
                 return NotFound();
             }
-            else if (todoDbContext.Users.Where(o => o.Id == userId && o.IsAdmin) != null)
+            else if (todoDbContext.Users.Where(o => o.Id == userId && o.IsAdmin).Any())
             {
                 return Ok(await todoDbContext.Todos
                     .Select(o => new TodoDTO
@@ -41,13 +41,13 @@ namespace ProjectAPI.Controllers
                         Description = o.Description,
                         Id = o.Id,
                         Status = o.Status,
-                        UserId = userId,
+                        UserId = o.UserId,
                     })
                     .ToListAsync());
             }
             else
             {
-                return Ok(todoDbContext.Todos
+                return Ok(await todoDbContext.Todos
                     .Where(o => o.UserId == userId)
                     .Select(o => new TodoDTO
                     {
@@ -55,7 +55,7 @@ namespace ProjectAPI.Controllers
                         Description = o.Description,
                         Id = o.Id,
                         Status = o.Status,
-                        UserId = userId,
+                        UserId = o.UserId,
                     })
                     .ToListAsync());
             }
@@ -71,9 +71,28 @@ namespace ProjectAPI.Controllers
 
         public async Task<IActionResult> GetSingleTodo(int userId, int todoId)
         {
-            if (todoDbContext.Todos.Where(o => o.Id == userId && o.Id == todoId) == null)
+            if (!todoDbContext.Todos.
+                Where(o => o.Id == userId && o.Id == todoId)
+                .Any() 
+                && !todoDbContext.Users
+                .Where(o => o.Id == userId && o.IsAdmin != true)
+                .Any())
             {
                 return NotFound();
+            }
+            else if ((todoDbContext.Users.Where(o => o.Id == userId && o.IsAdmin == true).Any()))
+            {
+                return Ok(await todoDbContext.Todos
+                        .Where(o => o.UserId == userId && o.Id == todoId)
+                        .Select(o => new TodoDTO
+                        {
+                            Date = o.Date,
+                            Description = o.Description,
+                            Id = o.Id,
+                            Status = o.Status,
+                            UserId = o.UserId,
+                        })
+                        .FirstAsync());
             }
             else
             {
@@ -85,7 +104,7 @@ namespace ProjectAPI.Controllers
                         Description = o.Description,
                         Id = o.Id,
                         Status = o.Status,
-                        UserId = userId,
+                        UserId = o.UserId,
                     })
                     .FirstAsync());
             }

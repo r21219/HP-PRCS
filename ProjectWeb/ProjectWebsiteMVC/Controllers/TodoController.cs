@@ -21,11 +21,11 @@ namespace ProjectWebsiteMVC.Controllers
             var result = _httpClient.GetAsync(URLTODO + "?userId=" + user.Id).Result;
             if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                List<TodoDTO> ret = new();
+                List<TodoDTO> ret;
                 ret = JsonConvert.DeserializeObject<List<TodoDTO>>(result.Content.ReadAsStringAsync().Result);
                 return View(ret);
             }
-            return View("Error has occured");
+            return View();
         }
 
         public IActionResult Create()
@@ -44,20 +44,23 @@ namespace ProjectWebsiteMVC.Controllers
 
                 if (ret.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return View("Index");
+                    TempData["Sucess"] = "Todo sucessfully created";
+                    return RedirectToAction("Index");
                 }
                 else
                 {
+                    TempData["Error"] = "Todo was not created";
                     return View();
                 }
             }
+            TempData["Error"] = "Wrong input";
             return View();
         }
 
-        public IActionResult Update(int todoId)
+        public IActionResult Update(int id)
         {
             var user = JsonConvert.DeserializeObject<UserDTO>(HttpContext.Session.GetString(SessionKeyManager.SessionKey));
-            var result = _httpClient.GetAsync(URLTODO + "/" + user.Id + "/" + todoId).Result;
+            var result = _httpClient.GetAsync(URLTODO + "/" + user.Id + "/" + id).Result;
             if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 TodoDTO todo = JsonConvert.DeserializeObject<TodoDTO>(result.Content.ReadAsStringAsync().Result);
@@ -65,6 +68,7 @@ namespace ProjectWebsiteMVC.Controllers
             }
             else
             {
+                TempData["Error"] = "Todo could not be located";
                 return View("Index");
             }
         }
@@ -77,13 +81,16 @@ namespace ProjectWebsiteMVC.Controllers
                 var result = _httpClient.PutAsJsonAsync(URLTODO, newTodoDTO).Result;
                 if (result.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return View("Detail");
+                    TempData["Sucess"] = "Todo was updated";
+                    return View("Index");
                 }
                 else
                 {
+                    TempData["Error"] = "Todo was not updated";
                     return View();
                 }
             }
+            TempData["Error"] = "Wrong input";
             return View();
         }
         [HttpPost]
@@ -92,10 +99,12 @@ namespace ProjectWebsiteMVC.Controllers
             var result = _httpClient.DeleteAsync(URLTODO +"?id=" + id).Result;
             if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return View("Index");
+                TempData["Sucess"] = "Todo was sucessfully deleted";
+                return RedirectToAction("Index");
             }
             else
             {
+                TempData["Error"] = "Todo was not deled";
                 return View("Index");
             }
         }
