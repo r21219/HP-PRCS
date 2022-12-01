@@ -40,13 +40,13 @@ namespace ProjectWebsiteMVC.Controllers
             }
             return RedirectToAction("Index");
         }
-        public IActionResult Register()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(NewTodoDTO newUser)
+        public IActionResult Create(NewUserDTO newUser)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace ProjectWebsiteMVC.Controllers
                 if (result.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     TempData["Sucess"] = "User sucessfully created";
-                    return RedirectToAction("Update");
+                    return RedirectToAction("Index");
                 }
             }
             TempData["Error"] = "User was not created";

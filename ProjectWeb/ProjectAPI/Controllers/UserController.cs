@@ -17,7 +17,8 @@ namespace ProjectAPI.Controllers
         /// <summary>
         /// Used for getting the user
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="name">Username of user</param>
+        /// /// <param name="password">password of the user</param>
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -59,10 +60,10 @@ namespace ProjectAPI.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CreateUser(UserDTO user)
+        public async Task<IActionResult> CreateUser([FromBody] NewUserDTO user)
         {
-            var isExisting = await todoDbContext.Users.FindAsync(user.Username);
-            if (user == null && isExisting == null)
+            var isExisting =  todoDbContext.Users.Where(o => o.Username == user.Username).Any();
+            if (user == null || isExisting == true)
             {
                 return BadRequest("Cannot create user because the user already exists or the input doesn't exist");
             }
@@ -72,7 +73,7 @@ namespace ProjectAPI.Controllers
                 {
                     Forename = user.Forename,
                     Surname = user.Surname,
-                    IsAdmin = user.IsAdmin,
+                    IsAdmin = false,
                     Gender = user.Gender,
                     Password = user.Password,
                     Username = user.Username

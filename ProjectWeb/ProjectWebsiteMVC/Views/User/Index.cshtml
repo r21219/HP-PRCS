@@ -12,6 +12,9 @@
             <input type="password" asp-for="Password" class="form-control" />
             <span asp-validation-for="Password" class="text-danger"></span>
           </div>
+          <div class=" p-2 text-center">
+              <a asp-area="" asp-controller="User" asp-action="Create">Register</a>
+          </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary " style="width:150px">Login</button>
           </div>
