@@ -74,15 +74,15 @@ namespace ProjectWebsiteMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(NewTodoDTO newTodoDTO)
+        public IActionResult Update(TodoDTO newTodoDTO)
         {
             if (ModelState.IsValid)
             {
-                var result = _httpClient.PutAsJsonAsync(URLTODO, newTodoDTO).Result;
+                var result = _httpClient.PutAsJsonAsync(URLTODO + "?id=" + newTodoDTO.Id, newTodoDTO).Result;
                 if (result.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     TempData["Sucess"] = "Todo was updated";
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -93,7 +93,7 @@ namespace ProjectWebsiteMVC.Controllers
             TempData["Error"] = "Wrong input";
             return View();
         }
-        [HttpPost]
+        
         public IActionResult Delete(int id)
         {
             var result = _httpClient.DeleteAsync(URLTODO +"?id=" + id).Result;

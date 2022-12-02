@@ -1,7 +1,7 @@
 ﻿@using ProjectAPI.Model;
 @using ProjectAPI.Model.DTO
 @using ProjectAPI.Model.Enum
-@model NewTodoDTO;
+@model TodoDTO;
       <div class="mb-4 mt-5 pt-5 pb-3 d-flex justify-content-center">
         <form method="post" asp-action="Update">
           <div class="input-group mb-3">
@@ -37,6 +37,7 @@
                 }
             </select>
             <span asp-validation-for="Status" class="text-danger"></span>
+            <input hidden asp-for=Id value="@Model.Id"/>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary " style="width:150px">Update</button>

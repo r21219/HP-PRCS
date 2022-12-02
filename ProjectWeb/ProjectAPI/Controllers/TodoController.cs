@@ -147,12 +147,11 @@ namespace ProjectAPI.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-        public async Task<IActionResult> UpdateTodo(int id, [FromBody] NewTodoDTO todoDTO)
+        public async Task<IActionResult> UpdateTodo(int id, [FromBody] TodoDTO todoDTO)
         {
             var ret = await todoDbContext.Todos.FindAsync(id);
             if (ret != null && todoDTO != null)
             {
-                ret.UserId = todoDTO.UserId;
                 ret.Date = todoDTO.Date;
                 ret.Description = todoDTO.Description;
                 ret.Status = todoDTO.Status;
