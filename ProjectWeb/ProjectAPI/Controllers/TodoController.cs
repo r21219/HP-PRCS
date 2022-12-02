@@ -71,19 +71,19 @@ namespace ProjectAPI.Controllers
 
         public async Task<IActionResult> GetSingleTodo(int userId, int todoId)
         {
-            if (!todoDbContext.Todos.
+            if (todoDbContext.Todos.
                 Where(o => o.Id == userId && o.Id == todoId)
                 .Any() 
-                && !todoDbContext.Users
+                && todoDbContext.Users
                 .Where(o => o.Id == userId && o.IsAdmin != true)
                 .Any())
             {
                 return NotFound();
             }
-            else if ((todoDbContext.Users.Where(o => o.Id == userId && o.IsAdmin == true).Any()))
+            else if (todoDbContext.Users.Where(o => o.Id == userId && o.IsAdmin == true).Any())
             {
                 return Ok(await todoDbContext.Todos
-                        .Where(o => o.UserId == userId && o.Id == todoId)
+                        .Where(o =>  o.Id == todoId)
                         .Select(o => new TodoDTO
                         {
                             Date = o.Date,
