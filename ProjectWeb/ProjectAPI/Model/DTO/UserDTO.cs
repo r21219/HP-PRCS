@@ -10,6 +10,10 @@ namespace ProjectAPI.Model
         [JsonProperty("id")]
         public int Id { get; set; }
         [Required]
+        [JsonProperty("email")]
+        [MaxLength(100)]
+        public string Email { get; set; }
+        [Required]
         [JsonProperty("username")]
         [MaxLength(50)]
         public string Username { get; set; }

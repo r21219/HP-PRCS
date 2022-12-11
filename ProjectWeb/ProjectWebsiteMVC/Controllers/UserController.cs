@@ -57,19 +57,18 @@ namespace ProjectWebsiteMVC.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            TempData["Error"] = "User was not created";
+            TempData["Error"] = "User could not be created";
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
             var response = _httpClient.DeleteAsync(URLUser + "?id=" + id.ToString()).Result;
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 TempData["Sucess"] = "User sucessfully deleted";
-                Logout();
+                return Logout();
             }
             if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
@@ -78,6 +77,7 @@ namespace ProjectWebsiteMVC.Controllers
             }
             return View("Update");
         }
+
         public IActionResult Update()
         {
             var user = JsonConvert.DeserializeObject<UserDTO>(HttpContext.Session.GetString(SessionKeyManager.SessionKey));
@@ -94,7 +94,7 @@ namespace ProjectWebsiteMVC.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Update(NewUserDTO NewUserDTO)
+        public  IActionResult Update(NewUserDTO NewUserDTO)
         {
             if (ModelState.IsValid)
             {
@@ -103,16 +103,15 @@ namespace ProjectWebsiteMVC.Controllers
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    TempData["Sucess"] = "User was sucessfully updated";
-                    return RedirectToAction("Update");
+                    return Logout();
                 }
                 else
                 {
-                    TempData["Error"] = "User could not be updated";
-                    return View("Error has occured");
+                    TempData["Error"] = "Email or username is already taken";
+                    return Update();
                 }
             }
-            return View("Update");
+            return Update();
         }
 
         public IActionResult Logout()

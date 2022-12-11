@@ -35,12 +35,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWebsiteMVC/Views/Todo/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xJbmRleC5jc2h0bWw=
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWebsiteMVC/Views/Todo/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWebsiteMVC/Views/Todo/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xVcGRhdGUuY3NodG1s
+[C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWebsiteMVC/Views/Todo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Lenovo/Desktop/Git Station/HP-PRCS/ProjectWeb/ProjectWebsiteMVC/Views/User/Create.cshtml]

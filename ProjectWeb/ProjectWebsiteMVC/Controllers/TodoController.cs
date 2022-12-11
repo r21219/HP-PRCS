@@ -57,7 +57,7 @@ namespace ProjectWebsiteMVC.Controllers
             return View();
         }
 
-        public IActionResult Update(int id)
+        public IActionResult Detail(int id)
         {
             var user = JsonConvert.DeserializeObject<UserDTO>(HttpContext.Session.GetString(SessionKeyManager.SessionKey));
             var result = _httpClient.GetAsync(URLTODO + "/" + user.Id + "/" + id).Result;
@@ -87,13 +87,14 @@ namespace ProjectWebsiteMVC.Controllers
                 else
                 {
                     TempData["Error"] = "Todo was not updated";
-                    return View();
+                    return Detail(newTodoDTO.Id);
                 }
             }
             TempData["Error"] = "Wrong input";
-            return View();
+            return View("Detail");
         }
-        
+                
+
         public IActionResult Delete(int id)
         {
             var result = _httpClient.DeleteAsync(URLTODO +"?id=" + id).Result;

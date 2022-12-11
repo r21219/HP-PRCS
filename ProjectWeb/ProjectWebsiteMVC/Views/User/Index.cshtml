@@ -3,15 +3,18 @@
       <div class="mb-4 mt-5 pt-5 pb-3 d-flex justify-content-center">
         <form method="get" asp-action="Login">
           <div class="input-group mb-3">
-            <label asp-for="Username" class="input-group-text"></label>
+            <label asp-for="Username" class="input-group-text">Username/Email</label>
             <input asp-for="Username" class="form-control" />
-            <span asp-validation-for="Username" class="text-danger"></span>
           </div>
+          <span asp-validation-for="Username" class="text-danger"></span>
           <div class="input-group mb-3">
             <label asp-for="Password" class="input-group-text"></label>
-            <input type="password" asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
+            <input id="password-field" type="password" asp-for="Password" class="form-control" />
+                <div class="input-group-text">
+                    <i toggle="#password-field" class=" toggle-password bi bi-eye-fill"></i>
+                </div>
           </div>
+          <span asp-validation-for="Password" class="text-danger"></span>
           <div class=" p-2 text-center">
               <a asp-area="" asp-controller="User" asp-action="Create">Register</a>
           </div>
@@ -20,3 +23,16 @@
           </div>
         </form>
       </div>
+
+      <script>
+      $(".toggle-password").click(function() {
+
+        $(this).toggleClass("bi bi-eye-slash-fill");
+         var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+          }
+            });
+      </script>

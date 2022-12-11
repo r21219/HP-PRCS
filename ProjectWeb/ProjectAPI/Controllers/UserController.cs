@@ -31,7 +31,7 @@ namespace ProjectAPI.Controllers
                 return BadRequest("Wrong id input");
             }
             var user = await todoDbContext.Users
-                .Where(o => o.Username == name && o.Password == password)
+                .Where(o => (o.Username == name || o.Email == name) && o.Password == password)
                 .Select(o => new UserDTO
                 {
                     Id = o.Id,
@@ -41,6 +41,7 @@ namespace ProjectAPI.Controllers
                     Surname = o.Surname,
                     Password = o.Password,
                     Username = o.Username,
+                    Email = o.Email,
                 })
                 .FirstOrDefaultAsync();
             if (user == null)
@@ -62,7 +63,7 @@ namespace ProjectAPI.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateUser([FromBody] NewUserDTO user)
         {
-            var isExisting =  todoDbContext.Users.Where(o => o.Username == user.Username).Any();
+            var isExisting =  todoDbContext.Users.Where(o => o.Username == user.Username || o.Email == user.Email).Any();
             if (user == null || isExisting == true)
             {
                 return BadRequest("Cannot create user because the user already exists or the input doesn't exist");
@@ -76,7 +77,8 @@ namespace ProjectAPI.Controllers
                     IsAdmin = false,
                     Gender = user.Gender,
                     Password = user.Password,
-                    Username = user.Username
+                    Username = user.Username,
+                    Email = user.Email,
                 });
                 await todoDbContext.SaveChangesAsync();
                 return Ok("User added");
@@ -98,11 +100,18 @@ namespace ProjectAPI.Controllers
             var ret = await todoDbContext.Users.FindAsync(id);
             if (ret != null && userDTO != null)
             {
+                var isExisting = todoDbContext.Users.Where(o => (o.Username == userDTO.Username || o.Email == userDTO.Email) && o.Id != id).Any();
+                if (isExisting == true)
+                {
+                    return BadRequest("Other user is already using this email or username");
+                }
+
                 ret.Username = userDTO.Username;
                 ret.Surname = userDTO.Surname;
                 ret.Forename = userDTO.Forename;
                 ret.Gender = userDTO.Gender;
                 ret.Password = userDTO.Password;
+                ret.Email = userDTO.Email;
                 todoDbContext.Users.Update(ret);
                 await todoDbContext.SaveChangesAsync();
                 return Ok("Todo sucessfully updated");

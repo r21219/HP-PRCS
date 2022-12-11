@@ -9,7 +9,10 @@ namespace ProjectAPI.Model
         [Required]
         public int Id { get; set; }
         [Required]
+        [MaxLength(100)]
+        public string Email { get; set; }
         [MaxLength(50)]
+        [Required]
         public string Username { get; set; }
         [Required]
         public string Forename { get; set; }

@@ -11,7 +11,7 @@
           </div>
           <div class="input-group mb-3">
             <label asp-for="Date" class="input-group-text"></label>
-            <input type="date" asp-for="Date" class="form-control" />
+            <input type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-dd") 00:00:00" asp-for="Date" class="form-control" />
             <span asp-validation-for="Date" class="text-danger"></span>
           </div>
           <div class="input-group mb-3">

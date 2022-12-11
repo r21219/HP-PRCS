@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectAPI", "ProjectAPI\ProjectAPI.csproj", "{7B521CE3-EAFF-4DC7-BCD0-4F6DEB35E2BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectWebsiteMVC", "ProjectWebsiteMVC\ProjectWebsiteMVC.csproj", "{9126F2DD-AA0D-402E-8751-EBCC18A258CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectWebsiteMVC", "ProjectWebsiteMVC\ProjectWebsiteMVC.csproj", "{9126F2DD-AA0D-402E-8751-EBCC18A258CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
