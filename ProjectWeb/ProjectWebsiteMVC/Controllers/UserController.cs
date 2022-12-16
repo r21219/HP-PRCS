@@ -103,7 +103,14 @@ namespace ProjectWebsiteMVC.Controllers
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return Logout();
+                    var responseUpdated = _httpClient.GetAsync(URLUser + "?name=" + NewUserDTO.Username + "&password=" + NewUserDTO.Password).Result;
+                    if (responseUpdated.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        UserDTO currentUser = JsonConvert.DeserializeObject<UserDTO>(responseUpdated.Content.ReadAsStringAsync().Result);
+                        HttpContext.Session.SetString(SessionKeyManager.SessionKey, JsonConvert.SerializeObject(currentUser));
+                        TempData["Sucess"] = "User sucessfully updated";
+                        return Update();
+                    }
                 }
                 else
                 {
